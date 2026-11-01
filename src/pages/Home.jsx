@@ -10,6 +10,8 @@ import Sky from "../models/Sky";
 import Bird from "../models/Bird";
 // Plane
 import Plane from "../models/Plane";
+// homeinfo
+import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   // states
@@ -55,9 +57,9 @@ const Home = () => {
 
   return (
     <section className="relative w-full h-screen">
-      {/* <div className="z-10 absolute top-28 left-0 right-0 flex justify-center items-center">
-        POPUP
-      </div> */}
+      <div className="z-10 absolute top-28 left-0 right-0 flex justify-center items-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
 
       {/* Scene */}
       <Canvas
