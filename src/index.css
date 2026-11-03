@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@layer components {
+  .max-container {
+    @apply max-w-5xl min-h-[calc(100vh-80px)] px-8 pt-31.5! pb-12 mx-auto sm:p-16;
+  }
+
+  .head-text {
+    @apply font-poppins font-semibold text-3xl sm:text-5xl sm:leading-snug;
+  }
+
+  .neo-btn {
+    @apply absolute right-0 left-0 -bottom-5 w-[90%] rounded-lg flex justify-center gap-3 items-center font-semibold text-center text-blue-500 sm:w-1/2 py-3 px-6 mx-auto;
+  }
+}
+
 .neo-brutalism-blue {
   position: relative;
   border: #2b77e7;
@@ -11,4 +25,15 @@
     0.65vmin 1vmin #0092db,
     1vmin 0.65vmin #0092db;
   background: #2677e7;
+}
+
+.neo-brutalism-white {
+  border: #fff;
+  box-shadow:
+    0.6vmin 0.6vmin #fff,
+    1vmin 1vmin #d2e4ff,
+    1vmin 1vmin #d2e4ff,
+    0.65vmin 1vmin #d2e4ff,
+    1vmin 0.65vmin #d2e4ff;
+  background: #fff;
 }
