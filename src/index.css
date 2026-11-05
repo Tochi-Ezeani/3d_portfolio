@@ -6,7 +6,19 @@
   }
 
   .head-text {
-    @apply font-poppins font-semibold text-3xl sm:text-5xl sm:leading-snug;
+    @apply font-semibold text-3xl sm:text-5xl sm:leading-snug;
+  }
+
+  .input {
+    @apply block w-full border border-gray-200 rounded-lg shadow-sm bg-white font-normal text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-2.5;
+  }
+
+  .textarea {
+    @apply block w-full border border-gray-200 rounded-lg shadow-sm bg-white font-normal text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-2.5;
+  }
+
+  .btn {
+    @apply w-full rounded-lg bg-gradient-to-r from-[#00c6ff] to-[#0072ff] font-medium text-sm text-center text-white hover:cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 sm:w-auto px-5 py-2.5;
   }
 
   .neo-btn {
