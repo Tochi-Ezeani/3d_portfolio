@@ -15,7 +15,17 @@ const Fox = ({ currentAnimation, ...props }) => {
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
 
-  useEffect(() => {}, [actions, currentAnimation]);
+  useEffect(() => {
+    // view actions
+    // console.log(actions);
+
+    // fox logic
+    Object.values(actions).forEach((action) => action.stop());
+
+    if (actions[currentAnimation]) {
+      actions[currentAnimation].play()
+    }
+  }, [actions, currentAnimation]);
 
   return (
     <group ref={group} {...props} dispose={null}>
