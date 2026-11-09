@@ -36,6 +36,14 @@
   .subhead-text {
     @apply relative font-poppins font-semibold text-xl sm:text-3xl;
   }
+
+  .cta {
+    @apply w-full flex flex-col items-center gap-7 md:flex-row mt-8 sm:mt-16;
+  }
+
+  .cta-text {
+    @apply flex-1 font-extrabold text-3xl text-black max-md:text-center;
+  }
 }
 
 .neo-brutalism-blue {
