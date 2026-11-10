@@ -5,6 +5,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+// cta import
 import CTA from "../components/CTA";
 
 const About = () => {
@@ -92,6 +93,7 @@ const About = () => {
         </VerticalTimeline>
       </div>
       <hr className="border-slate-200" />
+      {/* cta */}
       <CTA />
     </section>
   );
