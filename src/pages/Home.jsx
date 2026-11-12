@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 // react
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect, useRef } from "react";
 import Loader from "../components/Loader";
 // Island
 import Island from "../models/Island";
@@ -12,11 +12,33 @@ import Bird from "../models/Bird";
 import Plane from "../models/Plane";
 // homeinfo
 import HomeInfo from "../components/HomeInfo";
+// sakura
+import sakura from "../assets/sakura.mp3";
+// sound icons
+import { soundoff, soundon } from "../assets/icons";
 
 const Home = () => {
+  // audioRef
+  const audioRef = useRef(new Audio(sakura));
+
   // states
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  // audio state
+  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+
+  // audio useEffect
+  useEffect(() => {
+    if (isPlayingMusic) {
+      audioRef.current.volume = 0.4;
+      audioRef.current.loop = true;
+      audioRef.current.play();
+    }
+
+    return () => {
+      audioRef.current.pause();
+    };
+  }, [isPlayingMusic]);
 
   // adjustIslandForScreenSize
   const adjustIslandForScreenSize = () => {
@@ -33,10 +55,6 @@ const Home = () => {
     return [screenScale, screenPosition, rotation];
   };
 
-  // adjustIslandForScreenSize call
-  const [islandScale, islandPosition, islandRotation] =
-    adjustIslandForScreenSize();
-
   // adjustPlaneForScreenSize
   const adjustPlaneForScreenSize = () => {
     let screenScale, screenPosition;
@@ -51,6 +69,10 @@ const Home = () => {
 
     return [screenScale, screenPosition];
   };
+  
+  // adjustIslandForScreenSize call
+  const [islandScale, islandPosition, islandRotation] =
+    adjustIslandForScreenSize();
 
   // adjustPlaneForScreenSize call
   const [planeScale, planePosition] = adjustPlaneForScreenSize();
@@ -109,6 +131,15 @@ const Home = () => {
 
         </Suspense>
       </Canvas>
+      {/* audio component */}
+      <div className='absolute bottom-2 left-2'>
+        <img 
+          src={!isPlayingMusic ? soundoff : soundon} 
+          alt='jukebox'
+          className='w-10 h-10 cursor-pointer object-contain'
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        />
+      </div>
     </section>
   );
 };
